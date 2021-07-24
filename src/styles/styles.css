@@ -15,6 +15,7 @@
   --text-color:         #435058;
   --accent-color:       #E4572E;
   --background-color:   #F1F2EE;
+  --standard-border:    var(--border-width) solid var(--border-color);
 }
 
 body {
@@ -22,6 +23,12 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
+}
+
+header {
+  border-top: var(--standard-border);
+  padding: 0 1rem;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -38,26 +45,24 @@ a {
   color: var(--accent-color);
 }
 
-header, footer {
-  margin: 1rem;
-}
-
 hr {
   border: 0;
-  border-bottom: var(--border-width) solid var(--border-color);
+  border-bottom: var(--standard-border);
   margin: 1rem 0;
 }
 
+
+
+
 form {
-  border: var(--border-width) solid var(--border-color);
+  border: var(--standard-border);
 }
 
 fieldset {
   border: 0;
-  border-bottom: var(--border-width) solid var(--border-color);
+  border-bottom: var(--standard-border);
   padding: 1rem;
   margin: 0;
-  margin-bottom: calc();
 }
 fieldset legend {
   font-family: Pragmatica;
@@ -107,8 +112,9 @@ form button {
   color: var(--text-color);
   background-color: var(--accent-color);
   border: 0;
-  border-top: var(--border-width) solid var(--border-color);
+  border-top: var(--standard-border);
   cursor: pointer;
+  margin-top: calc(var(--border-width) * -1);
 }
 form button:hover, form button:active {
   color: var(--background-color);
@@ -116,13 +122,15 @@ form button:hover, form button:active {
 }
 
 .dropzone {
-  border-bottom: var(--border-width) solid var(--border-color);
+  border-bottom: var(--standard-border);
 }
 .dropzone label {
   display: block;
   padding: 2rem;
   background-color: transparent;
   text-align: center;
+  cursor: pointer;
+  font-family: Pragmatica;
 }
 .dropzone--active label {
   background-color: var(--border-color-light);
@@ -133,11 +141,20 @@ form button:hover, form button:active {
   height: 100vw;
   max-width: 600px;
   max-height: 600px;
+  display: block;
 }
 
 .preview canvas {
   position: absolute;
   left: -1000px;
+}
+
+
+
+footer {
+  padding: 0 1rem;
+  padding-bottom: 2rem;
+  display: flex;
 }
 
 
@@ -150,19 +167,19 @@ form button:hover, form button:active {
   height: 2.75rem;
   align-items: center;
   cursor: pointer;
-  background: #FFFFFF;
-  border: 1px solid #000000;
+  background: transparent;
+  border: var(--standard-border);
   box-sizing: border-box;
-  border-radius: 4px;
   text-decoration: none;
-  color: #000;
   white-space: nowrap;
   margin-left: auto;
+  font-family: Pragmatica;
+  color: var(--text-color);
 }
 .btn--remix img {
   margin-right: 0.5rem;
 }
 .btn--remix:hover {
-  background-color: #D0FFF1;
+  background-color: var(--border-color-light);
 }
 
