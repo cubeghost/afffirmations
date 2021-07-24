@@ -9,11 +9,11 @@ const fontFace = `
          format("opentype");
   }`;
 
-export default function Preview() {
+const Preview = React.forwardRef((props, ref) => {
   const { values } = useContext(StateContext);
 
   return (
-    <div id="preview">
+    <div ref={ref}>
       <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <style>{fontFace}</style>
@@ -69,4 +69,6 @@ export default function Preview() {
       <canvas width="1000" height="1000"></canvas>
     </div>
   );
-}
+});
+
+export default Preview;

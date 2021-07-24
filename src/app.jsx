@@ -8,6 +8,8 @@ import Preview from './components/Preview.jsx';
 import Controls from './components/Controls.jsx';
 
 export default function Home() {
+  const previewRef = useRef();
+  
   return (
     <StateProvider>
       <Seo />
@@ -21,7 +23,7 @@ export default function Home() {
         <hr />
       </header>
       <main role="main">
-        <Preview />
+        <Preview ref={previewRef} />
         <form action="#">
           <hr />
 
@@ -37,6 +39,7 @@ export default function Home() {
       <footer>
         <hr />
         <p>made by <a href="https://twitter.com/cubeghost">@cubeghost</a></p>
+        <br />
         <a
           className="btn--remix"
           target="_top"
