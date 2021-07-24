@@ -15,8 +15,8 @@ export default function Upload() {
   return (
     <Dropzone onDrop={onDrop} noClick>
       {({ getRootProps, getInputProps }) => (
-        <div className="field" {...getRootProps()}>
-          <label htmlFor="backgroundImage">Background</label>
+        <div {...getRootProps()} className="dropzone">
+          <label htmlFor="backgroundImage">Click or drag to upload background</label>
           <input {...getInputProps({id: 'backgroundImage'})} />
         </div>
       )}

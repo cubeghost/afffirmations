@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
-import { StateContext } from "../state/index.jsx";
+import { StateContext } from "../state/index.jsx"; 
+import GlowFilter from "./GlowFilter.jsx";
 
 const fontFace = `
   @font-face {
@@ -17,19 +18,8 @@ const Preview = React.forwardRef((props, ref) => {
       <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <style>{fontFace}</style>
-          <filter id="glow" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="30" />
-            <feComponentTransfer>
-              <feFuncA type="gamma" exponent="0.75" amplitude="1" />
-            </feComponentTransfer>
-            <feOffset dx="0" dy="0" result="offsetblur" />
-            <feFlood flood-color={values.glowColor} />
-            <feComposite in2="offsetblur" operator="in" />
-            <feMerge>
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
+          <GlowFilter id="textGlow" intensity="30" />
+          <GlowFilter id="outerGlow" intensity="05" />
         </defs>
         <rect height="1000" width="1000" />
         <image
@@ -40,13 +30,13 @@ const Preview = React.forwardRef((props, ref) => {
         />
         <g
           fill={values.textColor}
-          font-family="Pragmatica"
-          text-anchor="middle"
-          filter="url(#glow)"
+          fontFamily="Pragmatica"
+          textAnchor="middle"
+          filter="url(#textGlow)"
         >
           <text
             fontSize={values.topText.size * 10}
-            dominant-baseline="hanging"
+            dominantBaseline="hanging"
             transform-origin="center"
             transform={`scale(${1 - values.topText.squish * 0.01} 1)`}
             x="500"
@@ -55,7 +45,7 @@ const Preview = React.forwardRef((props, ref) => {
             {values.topText.value}
           </text>
           <text
-            font-size={values.bottomText.size * 10}
+            fontSize={values.bottomText.size * 10}
             transform-origin="center"
             transform={`scale(${1 - values.bottomText.squish * 0.01} 1)`}
             x="500"
@@ -70,7 +60,7 @@ const Preview = React.forwardRef((props, ref) => {
           fill="none"
           stroke={values.glowColor}
           strokeWidth="20"
-          filter="url(#glow)"
+          filter="url(#outerGlow)"
         ></rect>
       </svg>
       <canvas width="1000" height="1000"></canvas>
