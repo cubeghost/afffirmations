@@ -11,7 +11,7 @@
 :root {
   --border-width:       5px;
   --border-color:       #435058;
-  --border-color-light: #BFB7B6;
+  --medium-color:       #BFB7B6;
   --text-color:         #435058;
   --accent-color:       #E4572E;
   --background-color:   #F1F2EE;
@@ -108,7 +108,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
-  background-color: var(--border-color-light);
+  background-color: var(--medium-color);
   height: var(--height);
 }
 
@@ -132,14 +132,13 @@ form button:hover, form button:active {
 
 .field--toggle label {
   display: flex;
-  flex: 1;
+  flex-basis: 10rem;
 }
 .field--toggle label > span {
   display: block;
   flex: 0 1 6rem;
 }
 .toggle {
-  background-color: var(--border-color-light);
   color: var(--background-color);
   font-size: 0.8rem;
   font-family: Pragmatica;
@@ -151,7 +150,6 @@ form button:hover, form button:active {
 }
 .toggle input {
   margin: 0;
-  visibility: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -172,14 +170,16 @@ form button:hover, form button:active {
   right: 0;
   width: 50%;
   height: 100%;
-  box-shadow: 20px 0px 0px 50% black;
+  box-shadow: 0 0 0 2rem var(--medium-color);
   background: var(--accent-color);
 }
 .toggle input:checked:after {
   left: 0;
 }
-.toggle input:focus {
-  
+.toggle input:focus:after,
+.toggle input:focus:active {
+  box-shadow: 0 0 0 2rem #B3A9A8;
+  background-color: #D9481C;
 }
 
 
@@ -201,7 +201,7 @@ form button:hover, form button:active {
   justify-content: center;
 }
 .dropzone--active label {
-  background-color: var(--border-color-light);
+  background-color: var(--medium-color);
 }
 
 
@@ -253,6 +253,6 @@ footer {
   margin-right: 0.5rem;
 }
 .btn--remix:hover {
-  background-color: var(--border-color-light);
+  background-color: var(--medium-color);
 }
 
