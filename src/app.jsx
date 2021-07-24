@@ -36,25 +36,20 @@ export default function Home() {
         <p>
           inspired by <a href="https://instagram.com/afffirmations">@afffirmations</a> (that's three Fs)
         </p>
-        <hr />
       </header>
       <main role="main">
         <Preview ref={previewRef} />
         
         <form>          
           <Upload />
-
           <Controls />
           
-          <hr />
-
           <button onClick={generate} type="button">
             Download
           </button>
         </form>
       </main>
       <footer>
-        <hr />
         <p>made by <a href="https://twitter.com/cubeghost">@cubeghost</a></p>
         <br />
         <a

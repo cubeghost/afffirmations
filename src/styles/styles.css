@@ -9,14 +9,17 @@
 }
 
 :root {
-  --border-color: #BFB7B6;
-  --accent-color: #E4572E;
+  --border-width:       5px;
+  --border-color:       #435058;
+  --border-color-light: #BFB7B6;
+  --text-color:         #435058;
+  --accent-color:       #E4572E;
 }
 
 body {
   font-family: sans-serif;
   background-color: #F1F2EE;
-  color: #435058;
+  color: var(--text-color);
   margin: 0;
 }
 
@@ -34,22 +37,31 @@ a {
   color: var(--accent-color);
 }
 
-header, form, footer {
+header, footer {
   margin: 1rem;
 }
 
 hr {
   border: 0;
-  border-bottom: 1px dotted var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
   margin: 1rem 0;
 }
 
-fieldset {  
-  border: 1px dotted var(--border-color); 
-  margin: 0.75rem 0;
+form {
+  border: var(--border-width) solid var(--border-color);
+}
+
+fieldset {
+  border: 0;
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding: 0;
+  padding-bottom: 1rem;
+  margin: 1rem 0;
 }
 fieldset legend {
-  padding: 0 0.5rem;
+  font-family: Pragmatica;
+  font-size: 1.2rem;
+/*   padding: 0 0.5rem; */
 }
 
 .field {
@@ -88,17 +100,16 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 .dropzone {
-  margin: 0.25rem 0;
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 .dropzone label {
   display: block;
-  border: 2px dashed var(--border-color);
-  border-radius: 1rem;
   padding: 2rem;
+  background-color: transparent;
   text-align: center;
 }
 .dropzone--active label {
-  border-color: var(--accent-color);
+  background-color: var(--border-color-light);
 }
 
 .preview svg {
