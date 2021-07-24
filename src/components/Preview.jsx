@@ -1,5 +1,7 @@
 import React from "react";
 
+import useFields from "../state/index.js";
+
 const fontFace = `
   @font-face {
     font-family: Pragmatica;
@@ -8,55 +10,63 @@ const fontFace = `
   }`;
 
 export default function Preview() {
-  
+  const [values] = useFields();
+
   return (
     <div id="preview">
       <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <style>{fontFace}</style>
           <filter id="glow" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="30"/>
+            <feGaussianBlur in="SourceAlpha" stdDeviation="30" />
             <feComponentTransfer>
-              <feFuncA type="gamma" exponent="0.75" amplitude="1"/>
+              <feFuncA type="gamma" exponent="0.75" amplitude="1" />
             </feComponentTransfer>
-            <feOffset dx="0" dy="0" result="offsetblur"/>
-            <feFlood flood-color="#00FF00"/>
-            <feComposite in2="offsetblur" operator="in"/>
+            <feOffset dx="0" dy="0" result="offsetblur" />
+            <feFlood flood-color={values.glowColor} />
+            <feComposite in2="offsetblur" operator="in" />
             <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
-        </filter>
-
+          </filter>
         </defs>
         <rect height="1000" width="1000" />
-        <image id="backgroundImage"
-               width="1000" height="1000"
-               preserveAspectRatio="xMidYMid slice"
-               href={defaultBackground}
+        <image
+          width="1000"
+          height="1000"
+          preserveAspectRatio="xMidYMid slice"
+          href={values.backgroundImage}
         />
-        <g id="text"
-           fill="#FFFFFF"
-           font-family="Pragmatica"
-           text-anchor="middle"
-           filter="url(#glow)"
+        <g
+          id="text"
+          fill={values.textColor}
+          font-family="Pragmatica"
+          text-anchor="middle"
+          filter="url(#glow)"
         >
-          <text id="topText" 
-                fontSize="150"
-                dominant-baseline="hanging"
-                transform-origin="center"
-                transform="scale(0.9 1)"
-                x="500" y="50"
-          >Top text</text>
-          <text id="bottomText" 
-                font-size="150"
-                transform-origin="center"
-                transform="scale(0.9 1)"
-                x="500" y="950"
-          >Bottom text</text>
+          <text
+            fontSize={values.topText.size * 10}
+            dominant-baseline="hanging"
+            transform-origin="center"
+            transform={`scale(${1 - (1 / values.topText.squish)} 1)`}
+            x="500"
+            y="50"
+          >
+            {values.topText.value}
+          </text>
+          <text
+            font-size={values.bottomText.size * 10}
+            transform-origin="center"
+            transform={`scale(${1 - (1 / values.bottomText.squish)} 1)`}
+            x="500"
+            y="950"
+          >
+            {values.bottomText.value}
+          </text>
         </g>
       </svg>
       <canvas width="1000" height="1000"></canvas>
     </div>
   );
-};
+}
