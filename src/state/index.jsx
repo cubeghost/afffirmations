@@ -25,7 +25,7 @@ const reducer = (state, action) => {
   return newState;
 };
 
-export default () => {
+export default function useFields() {
   const [state, dispatch] = useReducer(reducer, initialState);
   
   const setField = useCallback((field, value) => (
