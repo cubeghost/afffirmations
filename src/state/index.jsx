@@ -7,6 +7,7 @@ const initialState = {
   backgroundImage: defaultBackground,
   textColor: '#FFFFFF',
   glowColor: '#00FF00',
+  hasBorder: true,
   topText: {
     value: 'Top text',
     size: 15,

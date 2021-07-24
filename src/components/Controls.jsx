@@ -4,7 +4,7 @@ import { StateContext } from "../state/index.jsx";
 
 export default function Controls() {
   const { values, setField } = useContext(StateContext);
-  const { backgroundImage, topText, bottomText, textColor, glowColor } = values;
+  const { backgroundImage, topText, bottomText, textColor, glowColor, hasBorder } = values;
 
   const handleTextChange = event => {
     setField(event.target.name, event.target.value);
@@ -12,6 +12,10 @@ export default function Controls() {
 
   const handleNumberChange = event => {
     setField(event.target.name, Number(event.target.value));
+  };
+  
+  const handleCheckboxChange = event => {
+    setField(event.target.name, event.target.checked);
   };
 
   return (
@@ -120,6 +124,17 @@ export default function Controls() {
           name="glowColor"
           onChange={handleTextChange}
           value={glowColor}
+        />
+      </div>
+      
+      <div className="field">
+        <label htmlFor="hasBorder">Border?</label>
+        <input
+          type="checkbox"
+          id="hasBorder"
+          name="hasBorder"
+          onChange={handleCheckboxChange}
+          checked={hasBorder}
         />
       </div>
     </>

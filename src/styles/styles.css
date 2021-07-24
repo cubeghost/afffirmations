@@ -27,6 +27,7 @@ h1 {
   border-bottom: 5px dotted var(--accent-color);
   padding-bottom: 2px;
   margin-bottom: 1.5rem;
+  font-family: Pragmatica;
 }
 
 a {
@@ -95,6 +96,9 @@ input[type=range]::-webkit-slider-runnable-track {
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+}
+.dropzone--active label {
+  border-color: var(--accent-color);
 }
 
 .preview svg {

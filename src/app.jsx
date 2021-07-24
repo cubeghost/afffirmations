@@ -5,7 +5,8 @@ import "./styles/styles.css";
 
 import {svgToDataUrl} from './utils.js';
 import StateProvider from './state/index.jsx';
-import Seo from './components/seo.jsx';
+
+import Meta from './components/Meta.jsx';
 import Preview from './components/Preview.jsx';
 import Controls from './components/Controls.jsx';
 import Upload from './components/Upload.jsx';
@@ -27,7 +28,7 @@ export default function Home() {
   
   return (
     <StateProvider>
-      <Seo />
+      <Meta />
       <header>
         <h1>
           afffirmations generator
@@ -40,9 +41,7 @@ export default function Home() {
       <main role="main">
         <Preview ref={previewRef} />
         
-        <form>
-          <hr />
-          
+        <form>          
           <Upload />
 
           <Controls />

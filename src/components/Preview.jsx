@@ -54,14 +54,16 @@ const Preview = React.forwardRef((props, ref) => {
             {values.bottomText.value}
           </text>
         </g>
-        <rect
-          height="1000"
-          width="1000"
-          fill="none"
-          stroke={values.glowColor}
-          strokeWidth="20"
-          filter="url(#outerGlow)"
-        ></rect>
+        {values.hasBorder && (
+          <rect
+            height="1000"
+            width="1000"
+            fill="none"
+            stroke={values.glowColor}
+            strokeWidth="20"
+            filter="url(#outerGlow)"
+          ></rect>
+        )}
       </svg>
       <canvas width="1000" height="1000"></canvas>
     </div>
