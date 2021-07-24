@@ -93,6 +93,11 @@ input[type=number] {
   width: 3rem;
 }
 
+input[type=text] {
+  border: 0;
+  padding: 0.25rem;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   background-color: transparent;
@@ -130,9 +135,24 @@ form button:hover, form button:active {
   background-color: var(--border-color);
 }
 
+input[type=color] {
+  -webkit-appearance: none;
+  border: 0;
+  cursor: pointer;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type=color]::-webkit-color-swatch {
+  border: var(--standard-border);
+}
+
+.field--toggle {
+  --toggle-width: 5rem;
+}
 .field--toggle label {
   display: flex;
-  flex-basis: 10rem;
+  flex-basis: calc(var(--toggle-width) + 6rem);
 }
 .field--toggle label > span {
   display: block;
@@ -144,7 +164,7 @@ form button:hover, form button:active {
   font-family: Pragmatica;
   display: flex;
   cursor: pointer;
-  width: 4rem;
+  width: var(--toggle-width);
   position: relative;
   overflow: hidden;
 }
@@ -158,7 +178,8 @@ form button:hover, form button:active {
   flex: 1;
   text-align: center;
   display: block;
-  padding: 0 0.25rem;
+  padding: 0.1rem 0.25rem;
+  line-height: 1.2rem;
   z-index: 1;
 }
 .toggle input:after {
@@ -170,7 +191,7 @@ form button:hover, form button:active {
   right: 0;
   width: 50%;
   height: 100%;
-  box-shadow: 0 0 0 2rem var(--medium-color);
+  box-shadow: 0 0 0 calc(var(--toggle-width) / 2) var(--medium-color);
   background: var(--accent-color);
 }
 .toggle input:checked:after {
@@ -178,7 +199,7 @@ form button:hover, form button:active {
 }
 .toggle input:focus:after,
 .toggle input:focus:active {
-  box-shadow: 0 0 0 2rem #B3A9A8;
+  box-shadow: 0 0 0 calc(var(--toggle-width) / 2) #B3A9A8;
   background-color: #D9481C;
 }
 
@@ -199,6 +220,9 @@ form button:hover, form button:active {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.dropzone label span {
+  border-bottom: 5px dotted var(--medium-color);
 }
 .dropzone--active label {
   background-color: var(--medium-color);
