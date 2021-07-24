@@ -14,11 +14,12 @@
   --border-color-light: #BFB7B6;
   --text-color:         #435058;
   --accent-color:       #E4572E;
+  --background-color:   #F1F2EE;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #F1F2EE;
+  background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
 }
@@ -54,9 +55,9 @@ form {
 fieldset {
   border: 0;
   border-bottom: var(--border-width) solid var(--border-color);
-  padding: 0;
-  padding-bottom: 1rem;
-  margin: 1rem 0;
+  padding: 1rem;
+  margin: 0;
+  margin-bottom: calc();
 }
 fieldset legend {
   font-family: Pragmatica;
@@ -81,7 +82,7 @@ input[type=number] {
 input[type=range] {
   -webkit-appearance: none;
   background-color: transparent;
-  --height: 0.45rem;
+  --height: 5px;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -89,14 +90,29 @@ input[type=range]::-webkit-slider-thumb {
   height: 1rem;
   border-radius: 100%;
   background-color: var(--accent-color);
-  margin-top: calc((-1 * var(--height) / 2) - 1px);
+  margin-top: calc(var(--height) * -1);
 }
 input[type=range]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
-  background-color: #EEEEEE;
-  border: 1px solid var(--border-color);
+  background-color: var(--border-color-light);
   height: var(--height);
-  border-radius: var(--height);
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: Pragmatica;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  border: 0;
+  border-top: var(--border-width) solid var(--border-color);
+  cursor: pointer;
+}
+form button:hover, form button:active {
+  color: var(--background-color);
+  background-color: var(--border-color);
 }
 
 .dropzone {
@@ -123,8 +139,6 @@ input[type=range]::-webkit-slider-runnable-track {
   position: absolute;
   left: -1000px;
 }
-
-
 
 
 /* Our remix on glitch button */

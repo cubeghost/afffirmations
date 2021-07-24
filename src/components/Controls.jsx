@@ -105,38 +105,38 @@ export default function Controls() {
         </div>
       </fieldset>
 
-      <div className="field">
-        <label htmlFor="textColor">Text color</label>
-        <input
-          type="color"
-          id="textColor"
-          name="textColor"
-          onChange={handleTextChange}
-          value={textColor}
-        />
-      </div>
-
-      <div className="field">
-        <label htmlFor="glowColor">Glow color</label>
-        <input
-          type="color"
-          id="glowColor"
-          name="glowColor"
-          onChange={handleTextChange}
-          value={glowColor}
-        />
-      </div>
-      
-      <div className="field">
-        <label htmlFor="hasBorder">Border?</label>
-        <input
-          type="checkbox"
-          id="hasBorder"
-          name="hasBorder"
-          onChange={handleCheckboxChange}
-          checked={hasBorder}
-        />
-      </div>
+      <fieldset>
+        <div className="field">
+          <label htmlFor="textColor">Text color</label>
+          <input
+            type="color"
+            id="textColor"
+            name="textColor"
+            onChange={handleTextChange}
+            value={textColor}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="glowColor">Glow color</label>
+          <input
+            type="color"
+            id="glowColor"
+            name="glowColor"
+            onChange={handleTextChange}
+            value={glowColor}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="hasBorder">Border?</label>
+          <input
+            type="checkbox"
+            id="hasBorder"
+            name="hasBorder"
+            onChange={handleCheckboxChange}
+            checked={hasBorder}
+          />
+        </div>
+      </fieldset>
     </>
   );
 }
