@@ -17,7 +17,7 @@ export default function Controls() {
   return (
     <>
       <div className="field">
-        <label for="backgroundImage">Background</label>
+        <label htmlFor="backgroundImage">Background</label>
         <input
           type="file"
           accept="image/*"
@@ -29,7 +29,7 @@ export default function Controls() {
       <fieldset>
         <legend>Top text</legend>
         <div className="field">
-          <label for="topText.value">Text</label>
+          <label htmlFor="topText.value">Text</label>
           <input
             type="text"
             id="topText.value"
@@ -39,7 +39,7 @@ export default function Controls() {
           />
         </div>
         <div className="field">
-          <label for="topText.size">Size</label>
+          <label htmlFor="topText.size">Size</label>
           <input
             type="range"
             min="5"
@@ -51,7 +51,7 @@ export default function Controls() {
           />
         </div>
         <div className="field">
-          <label for="topText.squish">Squish</label>
+          <label htmlFor="topText.squish">Squish</label>
           <input
             type="range"
             min="-50"
@@ -63,7 +63,7 @@ export default function Controls() {
           />
           <input
             type="number"
-            inputmode="numeric"
+            inputMode="numeric"
             min="-50"
             max="95"
             name="topText.squish"
@@ -76,7 +76,7 @@ export default function Controls() {
       <fieldset>
         <legend>Bottom text</legend>
         <div className="field">
-          <label for="bottomText.value">Text</label>
+          <label htmlFor="bottomText.value">Text</label>
           <input
             type="text"
             id="bottomText.value"
@@ -86,7 +86,7 @@ export default function Controls() {
           />
         </div>
         <div className="field">
-          <label for="bottomText.size">Size</label>
+          <label htmlFor="bottomText.size">Size</label>
           <input
             type="range"
             min="5"
@@ -98,7 +98,7 @@ export default function Controls() {
           />
         </div>
         <div className="field">
-          <label for="bottomText.squish">Squish</label>
+          <label htmlFor="bottomText.squish">Squish</label>
           <input
             type="range"
             min="-50"
@@ -112,7 +112,7 @@ export default function Controls() {
       </fieldset>
 
       <div className="field">
-        <label for="textColor">Text color</label>
+        <label htmlFor="textColor">Text color</label>
         <input
           type="color"
           id="textColor"
@@ -123,7 +123,7 @@ export default function Controls() {
       </div>
 
       <div className="field">
-        <label for="glowColor">Glow color</label>
+        <label htmlFor="glowColor">Glow color</label>
         <input
           type="color"
           id="glowColor"

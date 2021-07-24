@@ -12,7 +12,9 @@ import Controls from './components/Controls.jsx';
 export default function Home() {
   const previewRef = useRef();
   
-  const download = async () => {
+  const generate = async (event) => {
+    if (event) event.preventDefault();
+
     const preview = previewRef.current;
     const canvas = preview.querySelector('canvas');
     const svg = new XMLSerializer().serializeToString(preview.querySelector('svg'));
@@ -37,14 +39,14 @@ export default function Home() {
       <main role="main">
         <Preview ref={previewRef} />
         
-        <form action="#">
+        <form>
           <hr />
 
           <Controls />
           
           <hr />
 
-          <button onClick={download}>
+          <button onClick={generate} type="button">
             Download
           </button>
         </form>
