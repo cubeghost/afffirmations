@@ -53,9 +53,14 @@ hr {
 
 
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 form {
   border: var(--standard-border);
+  flex: 1 1;
 }
 
 fieldset {
@@ -136,6 +141,9 @@ form button:hover, form button:active {
   background-color: var(--border-color-light);
 }
 
+.preview {
+}
+
 .preview svg {
   width: 100vw;
   height: 100vw;
@@ -152,9 +160,9 @@ form button:hover, form button:active {
 
 
 footer {
-  padding: 0 1rem;
-  padding-bottom: 2rem;
+  padding: 1rem;
   display: flex;
+  
 }
 
 
