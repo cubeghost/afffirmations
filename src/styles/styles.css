@@ -1,48 +1,110 @@
-/******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
-/* Our default values set as CSS variables */
-:root {
-  --color-bg: #FFFFA0;
-  --color-text-main: #000000;
-  --color-primary: #AFECE0;
-  --wrapper-height: 85vh;
-  --image-max-width: 320px;
-  --font-family: "HK Grotesk";
-  --font-family-header: "HK Grotesk";
-}
-
-/* Basic page style resets */
 * {
   box-sizing: border-box;
 }
-[hidden] {
-  display: none !important;
+
+@font-face {
+  font-family: Pragmatica;
+  src: url("https://cdn.glitch.com/dbd6a892-3877-4760-a1ec-d39db8c96792%2FPragmaticaCondBlack.otf?v=1627096931812")
+    format("opentype");
 }
 
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
-    format("opentype");
+:root {
+  --border-color: #BFB7B6;
+  --accent-color: #E4572E;
 }
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
+
+body {
+  font-family: sans-serif;
+  background-color: #F1F2EE;
+  color: #435058;
+  margin: 0;
 }
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  display: table;
+  border-bottom: 5px dotted var(--accent-color);
+  padding-bottom: 2px;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+header, form, footer {
+  margin: 1rem;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px dotted var(--border-color);
+  margin: 1rem 0;
+}
+
+fieldset {  
+  border: 1px dotted var(--border-color); 
+  margin: 0.75rem 0;
+}
+fieldset legend {
+  padding: 0 0.5rem;
+}
+
+.field {
+  width: 100%;
+  max-width: 25rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.25rem 0;
+}
+.field label {
+  flex: 0 1 6rem;
+}
+input[type=number] {
+  width: 3rem;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  background-color: transparent;
+  --height: 0.45rem;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+  margin-top: calc((-1 * var(--height) / 2) - 1px);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background-color: #EEEEEE;
+  border: 1px solid var(--border-color);
+  height: var(--height);
+  border-radius: var(--height);
+}
+
+#preview svg {
+  width: 100vw;
+  height: 100vw;
+  max-width: 600px;
+  max-height: 600px;
+}
+
+#preview canvas {
+  position: absolute;
+  left: -1000px;
+}
+
+
+
 
 /* Our remix on glitch button */
 .btn--remix {
-  font-family: HK Grotesk;
   padding: 0.75rem 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1rem;
   font-weight: 500;
   height: 2.75rem;
@@ -64,112 +126,3 @@ to this section's matching END comment to see page-specific styles.
   background-color: #D0FFF1;
 }
 
-/* Navigation grid */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem auto 0;
-  padding: 1rem 0 0.75rem 0;
-  width: 100%;
-  flex-wrap: wrap;
-  border-top: 4px solid #fff;
-}
-
-.footer a:not(.btn--remix):link,
-a:not(.btn--remix):visited {
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.1rem;
-  color: #000;
-  text-decoration: none;
-  border-style: none;
-}
-.footer a:hover {
-  background: var(--color-primary);
-}
-
-.footer .links {
-  padding: 0.5rem 1rem 1.5rem;
-  white-space: nowrap;
-}
-
-.divider {
-  padding: 0 1rem;
-}
-/******************************************************************************
-END Glitch hello-app default styles
-******************************************************************************/
-
-/* Page structure */
-body {
-  font-family: HK Grotesk;
-  background-color: var(--color-bg);
-}
-.wrapper {
-  min-height: var(--wrapper-height);
-  display: grid;
-  place-items: center;
-  margin: 0 1rem;
-  min-height: 86vh;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Page titles */
-h1 {
-  color: #2800FF;
-  font-family: HK Grotesk;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 100px;
-  line-height: 105%;
-}
-.page h1 {
-  font-size: 48px;
-}
-
-.page p {
-  line-height: 1.5;
-}
-
-.page a {
-  color: #000;
-}
-
-.page a:hover {
-  text-decoration: none;
-}
-
-/* The React image and "click me" text */
-.btn--click-me {
-  user-select: none;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn--click-me:hover {
-  text-decoration: underline;
-}
-
-/* Very light scaling for our illustration */
-.illustration {
-  max-width: 100%;
-  max-height: var(--image-max-width);
-  cursor: pointer;
-  padding-left: 3.5rem;
-}
-
-/* Instructions */
-.instructions {
-  margin: 1rem auto 0;
-}
-.instructions p {
-  font-size: 1rem;
-}
-h2 {
-  color: #2800FF;
-}
