@@ -145,26 +145,43 @@ form button:hover, form button:active {
   font-family: Pragmatica;
   display: flex;
   cursor: pointer;
+  width: 4rem;
+  position: relative;
+  overflow: hidden;
 }
 .toggle input {
-  display: none;
+  margin: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 .toggle span {
+  flex: 1;
+  text-align: center;
   display: block;
   padding: 0 0.25rem;
+  z-index: 1;
 }
-.toggle input:not(:checked) + span + span {
-  background-color: var(--accent-color);
+.toggle input:after {
+  content: '';
+  visibility: visible;
+  display: block;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  box-shadow: 20px 0px 0px 50% black;
+  background: var(--accent-color);
 }
-.toggle input:checked + span {
-  background-color: var(--accent-color);
+.toggle input:checked:after {
+  left: 0;
 }
-.toggle input:checked + span + span {
-  background-color: transparent;
-}
-.toggle input:not(:checked):focus + span {
+.toggle input:focus {
   
 }
+
 
 .dropzone {
   border-bottom: var(--standard-border);
