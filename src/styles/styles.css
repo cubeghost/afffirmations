@@ -72,9 +72,11 @@ fieldset {
   margin: 0;
 }
 fieldset legend {
+  display: block;
   font-family: Pragmatica;
   font-size: 1.2rem;
-/*   padding: 0 0.5rem; */
+  padding: 0;
+  transform: translateY(50%);
 }
 
 .field {
@@ -135,12 +137,15 @@ form button:hover, form button:active {
   flex-direction: column;
 }
 .dropzone label {
-  display: block;
   padding: 2rem;
   background-color: transparent;
   text-align: center;
   cursor: pointer;
   font-family: Pragmatica;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dropzone--active label {
   background-color: var(--border-color-light);
