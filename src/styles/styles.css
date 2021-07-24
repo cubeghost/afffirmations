@@ -130,6 +130,42 @@ form button:hover, form button:active {
   background-color: var(--border-color);
 }
 
+.field--toggle label {
+  display: flex;
+  flex: 1;
+}
+.field--toggle label > span {
+  display: block;
+  flex: 0 1 6rem;
+}
+.toggle {
+  background-color: var(--border-color-light);
+  color: var(--background-color);
+  font-size: 0.8rem;
+  font-family: Pragmatica;
+  display: flex;
+  cursor: pointer;
+}
+.toggle input {
+  display: none;
+}
+.toggle span {
+  display: block;
+  padding: 0 0.25rem;
+}
+.toggle input:not(:checked) + span + span {
+  background-color: var(--accent-color);
+}
+.toggle input:checked + span {
+  background-color: var(--accent-color);
+}
+.toggle input:checked + span + span {
+  background-color: transparent;
+}
+.toggle input:not(:checked):focus + span {
+  
+}
+
 .dropzone {
   border-bottom: var(--standard-border);
   flex-grow: 1;
@@ -150,6 +186,8 @@ form button:hover, form button:active {
 .dropzone--active label {
   background-color: var(--border-color-light);
 }
+
+
 
 .preview {
 }

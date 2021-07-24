@@ -126,15 +126,22 @@ export default function Controls() {
             value={glowColor}
           />
         </div>
-        <div className="field">
-          <label htmlFor="hasBorder">Border?</label>
-          <input
-            type="checkbox"
-            id="hasBorder"
-            name="hasBorder"
-            onChange={handleCheckboxChange}
-            checked={hasBorder}
-          />
+        <div className="field field--toggle">
+          <label htmlFor="hasBorder">
+            <span>Border?</span>
+            <div className="toggle">
+              <input
+                type="checkbox"
+                id="hasBorder"
+                name="hasBorder"
+                onChange={handleCheckboxChange}
+                checked={hasBorder}
+              />
+              <span>On</span>
+              <span>Off</span>
+            </div>
+          </label>
+          
         </div>
       </fieldset>
     </>
