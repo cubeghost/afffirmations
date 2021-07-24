@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import download from 'downloadjs';
 
 import "./styles/styles.css";
 
+import {svgToDataUrl} from './utils.js';
 import StateProvider from './state/index.jsx';
 import Seo from './components/seo.jsx';
 import Preview from './components/Preview.jsx';
@@ -9,6 +11,16 @@ import Controls from './components/Controls.jsx';
 
 export default function Home() {
   const previewRef = useRef();
+  
+  const download = async () => {
+    const preview = previewRef.current;
+    const canvas = preview.querySelector('canvas');
+    const svg = new XMLSerializer().serializeToString(preview.querySelector('svg'));
+
+    const url = await svgToDataUrl(svg, canvas, 'image/png');
+    
+    download(url, 'afffirmation.png', 'image/png');
+  };
   
   return (
     <StateProvider>
@@ -24,6 +36,7 @@ export default function Home() {
       </header>
       <main role="main">
         <Preview ref={previewRef} />
+        
         <form action="#">
           <hr />
 
@@ -31,7 +44,7 @@ export default function Home() {
           
           <hr />
 
-          <button id="download">
+          <button onClick={download}>
             Download
           </button>
         </form>
