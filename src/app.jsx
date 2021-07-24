@@ -19,6 +19,7 @@ export default function Home() {
         <hr />
       </header>
       <main role="main">
+        <Preview />
         <form action="#">
           <hr />
           <div className="field">
