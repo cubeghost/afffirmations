@@ -16,16 +16,6 @@ export default function Controls() {
 
   return (
     <>
-      <div className="field">
-        <label htmlFor="backgroundImage">Background</label>
-        <input
-          type="file"
-          accept="image/*"
-          id="backgroundImage"
-          name="backgroundImage"
-        />
-      </div>
-
       <fieldset>
         <legend>Top text</legend>
         <div className="field">

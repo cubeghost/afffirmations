@@ -184,12 +184,14 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-O5JJi6fyfih0WfDgIJXksSPhGP/G0fQpfxYy87sDc+1sFmsCS6wr3aAn+whbzkhbjtq4VMqLRaSzR6IsshIC0Q==
-  /@babel/runtime/7.13.10:
+  /@babel/runtime/7.14.8:
     dependencies:
-      regenerator-runtime: 0.13.7
+      regenerator-runtime: 0.13.9
     dev: false
+    engines:
+      node: '>=6.9.0'
     resolution:
-      integrity: sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
+      integrity: sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==
   /@babel/template/7.12.13:
     dependencies:
       '@babel/code-frame': 7.12.13
@@ -463,7 +465,7 @@ packages:
       integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
   /react-helmet-async/1.0.9:
     dependencies:
-      '@babel/runtime': 7.13.10
+      '@babel/runtime': 7.14.8
       invariant: 2.2.4
       prop-types: 15.7.2
       react-fast-compare: 3.2.0
@@ -493,10 +495,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
-  /regenerator-runtime/0.13.7:
+  /regenerator-runtime/0.13.9:
     dev: false
     resolution:
-      integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
+      integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
   /resolve/1.20.0:
     dependencies:
       is-core-module: 2.2.0
@@ -582,5 +584,5 @@ specifiers:
   lodash: ^4.17.21
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-helmet-async: ^1.0.8
+  react-helmet-async: ^1.0.9
   vite: ^2.1.5

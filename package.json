@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-helmet-async": "^1.0.8",
+    "react-helmet-async": "^1.0.9",
     "lodash": "^4.17.21",
     "downloadjs": "^1.4.7"
   },

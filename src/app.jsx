@@ -8,6 +8,7 @@ import StateProvider from './state/index.jsx';
 import Seo from './components/seo.jsx';
 import Preview from './components/Preview.jsx';
 import Controls from './components/Controls.jsx';
+import Upload from './components/Upload.jsx';
 
 export default function Home() {
   const previewRef = useRef();
@@ -41,6 +42,8 @@ export default function Home() {
         
         <form>
           <hr />
+          
+          <Upload />
 
           <Controls />
           
