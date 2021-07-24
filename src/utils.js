@@ -14,4 +14,15 @@ export const svgToDataUrl = (svg, canvas, format = 'image/png') => {
 
     image.src = url;
   });
-}
+};
+
+export const fileToDataUrl = (file) => {
+  return new Promise((resolve, reject) => {
+    var fileReader = new FileReader();
+    fileReader.onloadend = function (e) {
+      var dataUrl = e.target.result;
+      resolve(dataUrl);
+    };
+    fileReader.readAsDataURL(file);
+  });
+};

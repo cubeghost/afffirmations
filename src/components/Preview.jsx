@@ -39,7 +39,6 @@ const Preview = React.forwardRef((props, ref) => {
           href={values.backgroundImage}
         />
         <g
-          id="text"
           fill={values.textColor}
           font-family="Pragmatica"
           text-anchor="middle"
@@ -65,6 +64,14 @@ const Preview = React.forwardRef((props, ref) => {
             {values.bottomText.value}
           </text>
         </g>
+        <rect
+          height="1000"
+          width="1000"
+          fill="none"
+          stroke={values.glowColor}
+          strokeWidth="20"
+          filter="url(#glow)"
+        ></rect>
       </svg>
       <canvas width="1000" height="1000"></canvas>
     </div>
