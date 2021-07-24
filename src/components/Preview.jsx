@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import useFields from "../state/index.js";
+import { StateContext } from "../state/index.jsx";
 
 const fontFace = `
   @font-face {
@@ -10,7 +10,7 @@ const fontFace = `
   }`;
 
 export default function Preview() {
-  const [values] = useFields();
+  const { values } = useContext(StateContext);
 
   return (
     <div id="preview">
@@ -49,7 +49,7 @@ export default function Preview() {
             fontSize={values.topText.size * 10}
             dominant-baseline="hanging"
             transform-origin="center"
-            transform={`scale(${1 - (1 / values.topText.squish)} 1)`}
+            transform={`scale(${1 - values.topText.squish * 0.01} 1)`}
             x="500"
             y="50"
           >
@@ -58,7 +58,7 @@ export default function Preview() {
           <text
             font-size={values.bottomText.size * 10}
             transform-origin="center"
-            transform={`scale(${1 - (1 / values.bottomText.squish)} 1)`}
+            transform={`scale(${1 - values.bottomText.squish * 0.01} 1)`}
             x="500"
             y="950"
           >

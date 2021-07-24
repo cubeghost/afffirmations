@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import "./styles/styles.css";
 
+import StateProvider from './state/index.jsx';
 import Seo from './components/seo.jsx';
 import Preview from './components/Preview.jsx';
 import Controls from './components/Controls.jsx';
 
 export default function Home() {
   return (
-    <>
+    <StateProvider>
       <Seo />
       <header>
         <h1>
@@ -45,6 +46,6 @@ export default function Home() {
           Remix on Glitch
         </a>
       </footer>
-    </>
+    </StateProvider>
   );
 }

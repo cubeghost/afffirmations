@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import useFields from "../state/index.js";
+import { StateContext } from "../state/index.jsx";
 
 export default function Controls() {
-  const [values, setField] = useFields();
-  
-  const handleTextChange = (event) => {
+  const { values, setField } = useContext(StateContext);
+  const { backgroundImage, topText, bottomText, textColor, glowColor } = values;
+
+  const handleTextChange = event => {
     setField(event.target.name, event.target.value);
   };
 
-  const handleNumberChange = (event) => {
+  const handleNumberChange = event => {
     setField(event.target.name, Number(event.target.value));
   };
 
@@ -17,101 +18,120 @@ export default function Controls() {
     <>
       <div className="field">
         <label for="backgroundImage">Background</label>
-        <input type="file"
-               accept="image/*"
-               id="backgroundImage"
-               name="backgroundImage" />        
+        <input
+          type="file"
+          accept="image/*"
+          id="backgroundImage"
+          name="backgroundImage"
+        />
       </div>
 
       <fieldset>
-        <legend>
-          Top text
-        </legend>
+        <legend>Top text</legend>
         <div className="field">
           <label for="topText.value">Text</label>
-          <input type="text"
-                 id="topText.value"
-                 name="topText.value"
-                 onChange={handleTextChange}
-                 value={values.topText.value} />        
+          <input
+            type="text"
+            id="topText.value"
+            name="topText.value"
+            onChange={handleTextChange}
+            value={topText.value}
+          />
         </div>
         <div className="field">
           <label for="topText.size">Size</label>
-          <input type="range"
-                 min="5"
-                 max="30"
-                 id="topText.size"
-                 name="topText.size"
-                 value="15" />        
+          <input
+            type="range"
+            min="5"
+            max="30"
+            id="topText.size"
+            name="topText.size"
+            onChange={handleNumberChange}
+            value={topText.size}
+          />
         </div>
         <div className="field">
           <label for="topText.squish">Squish</label>
-          <input type="range"
-                 min="-50"
-                 max="95"
-                 id="topText.squish"
-                 name="topText.squish"
-                 onChange={handleNumberChange}
-                 value={values.topText.squish} />    
-          <input type="number"
-                 inputmode="numeric"
-                 min="-50"
-                 max="95"
-                 name="topText.squish"
-                 onChange={handleNumberChange}
-                 value={values.topText.squish} />
+          <input
+            type="range"
+            min="-50"
+            max="95"
+            id="topText.squish"
+            name="topText.squish"
+            onChange={handleNumberChange}
+            value={topText.squish}
+          />
+          <input
+            type="number"
+            inputmode="numeric"
+            min="-50"
+            max="95"
+            name="topText.squish"
+            onChange={handleNumberChange}
+            value={topText.squish}
+          />
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>
-          Bottom text
-        </legend>
+        <legend>Bottom text</legend>
         <div className="field">
           <label for="bottomText.value">Text</label>
-          <input type="text"
-                 id="bottomText.value"
-                 name="bottomText.value"
-                 onChange={handleTextChange}
-                 value={values.bottomText.value} />        
+          <input
+            type="text"
+            id="bottomText.value"
+            name="bottomText.value"
+            onChange={handleTextChange}
+            value={bottomText.value}
+          />
         </div>
         <div className="field">
           <label for="bottomText.size">Size</label>
-          <input type="range"
-                 min="5"
-                 max="30"
-                 id="bottomText.size"
-                 name="bottomText.size"
-                 onChange={handleNumberChange}
-                 value={values.bottomText.size} />      
+          <input
+            type="range"
+            min="5"
+            max="30"
+            id="bottomText.size"
+            name="bottomText.size"
+            onChange={handleNumberChange}
+            value={bottomText.size}
+          />
         </div>
         <div className="field">
           <label for="bottomText.squish">Squish</label>
-          <input type="range"
-                 min="-50"
-                 max="95"
-                 id="bottomText.squish"
-                 name="bottomText.squish"
-                 onChange={handleNumberChange}
-                 value={values.bottomText.squish} />        
+          <input
+            type="range"
+            min="-50"
+            max="95"
+            id="bottomText.squish"
+            name="bottomText.squish"
+            onChange={handleNumberChange}
+            value={bottomText.squish}
+          />
         </div>
       </fieldset>
 
       <div className="field">
         <label for="textColor">Text color</label>
-        <input type="color"
-               id="textColor"
-               name="textColor"
-               value="#FFFFFF" />
+        <input
+          type="color"
+          id="textColor"
+          name="textColor"
+          onChange={handleTextChange}
+          value={textColor}
+        />
       </div>
 
       <div className="field">
         <label for="glowColor">Glow color</label>
-        <input type="color"
-               id="glowColor"
-               name="glowColor"
-               value="#00FF00" />
+        <input
+          type="color"
+          id="glowColor"
+          name="glowColor"
+          onChange={handleTextChange}
+          value={glowColor}
+        />
       </div>
     </>
   );
-};
+}
