@@ -1,17 +1,24 @@
 import React, { useContext } from "react";
-import clamp from 'lodash/clamp';
+import clamp from "lodash/clamp";
 
 import { StateContext } from "../state/index.jsx";
-import Upload from './Upload.jsx';
+import Upload from "./Upload.jsx";
 
 const SIZE_MIN = 5;
 const SIZE_MAX = 30;
 const SQUISH_MIN = -25;
-const SQUISH_MAX = 99;
+const SQUISH_MAX = 95;
 
 export default function Controls() {
   const { values, setField } = useContext(StateContext);
-  const { backgroundImage, topText, bottomText, textColor, glowColor, hasBorder } = values;
+  const {
+    backgroundImage,
+    topText,
+    bottomText,
+    textColor,
+    glowColor,
+    hasBorder
+  } = values;
 
   const handleTextChange = event => {
     setField(event.target.name, event.target.value);
@@ -23,7 +30,7 @@ export default function Controls() {
     const value = clamp(Number(event.target.value), min, max);
     setField(event.target.name, value);
   };
-  
+
   const handleCheckboxChange = event => {
     setField(event.target.name, event.target.checked);
   };
@@ -47,8 +54,8 @@ export default function Controls() {
           <label htmlFor="topText.size">Size</label>
           <input
             type="range"
-            min="5"
-            max="30"
+            min={SIZE_MIN}
+            max={SIZE_MAX}
             id="topText.size"
             name="topText.size"
             onChange={handleNumberChange}
@@ -57,8 +64,8 @@ export default function Controls() {
           <input
             type="number"
             inputMode="numeric"
-            min="5"
-            max="30"
+            min={SIZE_MIN}
+            max={SIZE_MAX}
             name="topText.size"
             onChange={handleNumberChange}
             value={topText.size}
@@ -68,8 +75,8 @@ export default function Controls() {
           <label htmlFor="topText.squish">Squish</label>
           <input
             type="range"
-            min="-50"
-            max="95"
+            min={SQUISH_MIN}
+            max={SQUISH_MAX}
             id="topText.squish"
             name="topText.squish"
             onChange={handleNumberChange}
@@ -78,8 +85,8 @@ export default function Controls() {
           <input
             type="number"
             inputMode="numeric"
-            min="-50"
-            max="95"
+            min={SQUISH_MIN}
+            max={SQUISH_MAX}
             name="topText.squish"
             onChange={handleNumberChange}
             value={topText.squish}
@@ -103,9 +110,18 @@ export default function Controls() {
           <label htmlFor="bottomText.size">Size</label>
           <input
             type="range"
-            min="5"
-            max="30"
+            min={SIZE_MIN}
+            max={SIZE_MAX}
             id="bottomText.size"
+            name="bottomText.size"
+            onChange={handleNumberChange}
+            value={bottomText.size}
+          />
+          <input
+            type="number"
+            inputMode="numeric"
+            min={SIZE_MIN}
+            max={SIZE_MAX}
             name="bottomText.size"
             onChange={handleNumberChange}
             value={bottomText.size}
@@ -115,9 +131,18 @@ export default function Controls() {
           <label htmlFor="bottomText.squish">Squish</label>
           <input
             type="range"
-            min="-50"
-            max="95"
+            min={SQUISH_MIN}
+            max={SQUISH_MAX}
             id="bottomText.squish"
+            name="bottomText.squish"
+            onChange={handleNumberChange}
+            value={bottomText.squish}
+          />
+          <input
+            type="number"
+            inputMode="numeric"
+            min={SQUISH_MIN}
+            max={SQUISH_MAX}
             name="bottomText.squish"
             onChange={handleNumberChange}
             value={bottomText.squish}
@@ -161,7 +186,6 @@ export default function Controls() {
               <span>Off</span>
             </div>
           </label>
-          
         </div>
       </fieldset>
     </>

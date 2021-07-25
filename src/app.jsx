@@ -25,13 +25,13 @@ export default function Home() {
         
         <form>          
           <Controls />
-          <Download element={previewRef.current} />
+          <Download element={previewRef} />
         </form>
       </main>
       <footer>
         <p>
-          inspired by <a href="https://instagram.com/afffirmations">@afffirmations</a><br />
-          made by <a href="https://twitter.com/cubeghost">@cubeghost</a>
+          inspired by <a href="https://instagram.com/afffirmations" target="_blank">@afffirmations</a><br />
+          made by <a href="https://twitter.com/cubeghost" target="_blank">@cubeghost</a>
         </p>
         <br />
         <a
