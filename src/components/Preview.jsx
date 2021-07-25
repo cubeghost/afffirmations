@@ -31,28 +31,27 @@ const Preview = React.forwardRef((props, ref) => {
         <g
           fill={values.textColor}
           fontFamily="Pragmatica"
-          text-anchor="middle"
-          filter="url(#textGlow)"
+          textAnchor="middle"
         >
-          <text
-            fontSize={values.topText.size * 10}
-            dominantBaseline="hanging"
-            transform-origin="center"
-            transform={`scale(${1 - values.topText.squish * 0.01} 1)`}
-            x="500"
-            y="50"
-          >
-            {values.topText.value}
-          </text>
-          <text
-            fontSize={values.bottomText.size * 10}
-            transform-origin="center"
-            transform={`scale(${1 - values.bottomText.squish * 0.01} 1)`}
-            x="500"
-            y="950"
-          >
-            {values.bottomText.value}
-          </text>
+          <g filter="url(#textGlow)" style={{transform: `scaleX(${1 - values.topText.squish * 0.01})`, transformOrigin: 'center'}}>
+            <text
+              fontSize={values.topText.size * 10}
+              dominantBaseline="hanging"
+              x="500"
+              y="50"
+            >
+              {values.topText.value}
+            </text>
+          </g>
+          <g filter="url(#textGlow)" style={{transform: `scaleX(${1 - values.bottomText.squish * 0.01})`, transformOrigin: 'center'}}>
+            <text
+              fontSize={values.bottomText.size * 10}
+              x="500"
+              y="950"
+            >
+              {values.bottomText.value}
+            </text>
+          </g>
         </g>
         {values.hasBorder && (
           <rect
