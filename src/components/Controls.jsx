@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
+import clamp from 'lodash/clamp';
 
 import { StateContext } from "../state/index.jsx";
 import Upload from './Upload.jsx';
+
+const SIZE_MIN = 5;
+const SIZE_MAX = 30;
+const SQUISH_MIN = -25;
+const SQUISH_MAX = 99;
 
 export default function Controls() {
   const { values, setField } = useContext(StateContext);
@@ -12,7 +18,10 @@ export default function Controls() {
   };
 
   const handleNumberChange = event => {
-    setField(event.target.name, Number(event.target.value));
+    const min = Number(event.target.min);
+    const max = Number(event.target.max);
+    const value = clamp(Number(event.target.value), min, max);
+    setField(event.target.name, value);
   };
   
   const handleCheckboxChange = event => {
@@ -41,6 +50,15 @@ export default function Controls() {
             min="5"
             max="30"
             id="topText.size"
+            name="topText.size"
+            onChange={handleNumberChange}
+            value={topText.size}
+          />
+          <input
+            type="number"
+            inputMode="numeric"
+            min="5"
+            max="30"
             name="topText.size"
             onChange={handleNumberChange}
             value={topText.size}
