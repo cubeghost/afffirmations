@@ -57,7 +57,7 @@ const Preview = React.forwardRef((props, ref) => {
           <rect
             height="1000"
             width="1000"
-            fill="none"
+            fill="transparent"
             stroke={values.glowColor}
             strokeWidth="20"
             filter="url(#outerGlow)"

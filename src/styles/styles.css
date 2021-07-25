@@ -148,6 +148,7 @@ form button {
   border-top: var(--standard-border);
   cursor: pointer;
   margin-top: calc(var(--border-width) * -1);
+  margin-bottom: 0;
 }
 form button:hover, form button:active {
   color: var(--background-color);
@@ -243,7 +244,19 @@ input[type=color]::-webkit-color-swatch {
   justify-content: center;
 }
 .dropzone label span {
+  display: none;
   border-bottom: 5px dotted var(--medium-color);
+}
+.dropzone label span.drag-enabled {
+  display: block;
+}
+@media screen and (max-width: 640px) {
+  .dropzone label span.drag-enabled {
+    display: none;
+  }
+  .dropzone label span.drag-disabled {
+    display: block;
+  }
 }
 .dropzone--active label {
   background-color: var(--medium-color);
