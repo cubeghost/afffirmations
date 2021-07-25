@@ -98,6 +98,7 @@ input[type=text] {
   padding: 0.25rem 0.25rem 0.1rem;
   color: var(--text-color);
   border-bottom: var(--border-width) solid var(--medium-color);
+  border-radius: 0;
 }
 input[type=text]:focus {
   border-color: var(--accent-color);
@@ -271,7 +272,9 @@ footer {
   display: flex;
   align-items: center;
 }
-
+footer p {
+  font-size: 0.8rem;
+}
 
 /* Our remix on glitch button */
 .btn--remix {

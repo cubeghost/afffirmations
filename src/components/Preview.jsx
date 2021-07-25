@@ -31,7 +31,7 @@ const Preview = React.forwardRef((props, ref) => {
         <g
           fill={values.textColor}
           fontFamily="Pragmatica"
-          textAnchor="middle"
+          text-anchor="middle"
           filter="url(#textGlow)"
         >
           <text
