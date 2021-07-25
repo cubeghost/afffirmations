@@ -55,12 +55,17 @@ hr {
 
 main {
   display: flex;
-  flex-wrap: wrap;
 }
+@media screen and (max-width: 640px) {
+  main {
+    flex-wrap: wrap;  
+  }  
+}
+
 
 form {
   border: var(--standard-border);
-  flex: 1 1;
+  flex: 1 0 320px;
   display: flex;
   flex-direction: column;
 }
@@ -236,13 +241,16 @@ input[type=color]::-webkit-color-swatch {
 
 
 .preview {
+  flex: 1 1 320px;
 }
 
 .preview svg {
-  width: 100vw;
+/*   width: 100vw;
   height: 100vw;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 620px;
+  max-height: 620px;
+  min-width: 320px;
+  min-height: 320px; */
   display: block;
 }
 
