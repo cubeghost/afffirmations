@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { StateContext } from "../state/index.jsx";
+import Upload from './Upload.jsx';
 
 export default function Controls() {
   const { values, setField } = useContext(StateContext);
@@ -20,6 +21,7 @@ export default function Controls() {
 
   return (
     <>
+      <Upload />
       <fieldset>
         <legend>Top text</legend>
         <div className="field">
