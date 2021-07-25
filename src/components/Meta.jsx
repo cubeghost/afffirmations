@@ -30,7 +30,12 @@ const Meta = () => {
       content={SEO.image}
     />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@cubeghost" />
+    <meta name="twitter:title" content={SEO.title} />
+    <meta name="twitter:description" content={SEO.description} />
+    <meta name="twitter:image" content={SEO.image} />
+
   </Helmet>
 };
 
