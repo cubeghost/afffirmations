@@ -138,6 +138,7 @@ form button:hover, form button:active {
 input[type=color] {
   -webkit-appearance: none;
   border: 0;
+  padding: 0;
   cursor: pointer;
 }
 input[type=color]::-webkit-color-swatch-wrapper {

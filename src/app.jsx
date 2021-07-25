@@ -33,9 +33,6 @@ export default function Home() {
         <h1>
           afffirmations generator
         </h1>
-        <p>
-          inspired by <a href="https://instagram.com/afffirmations">@afffirmations</a> (that's three Fs)
-        </p>
       </header>
       <main role="main">
         <Preview ref={previewRef} />
@@ -50,7 +47,10 @@ export default function Home() {
         </form>
       </main>
       <footer>
-        <p>made by <a href="https://twitter.com/cubeghost">@cubeghost</a></p>
+        <p>
+          inspired by <a href="https://instagram.com/afffirmations">@afffirmations</a><br />
+          made by <a href="https://twitter.com/cubeghost">@cubeghost</a>
+        </p>
         <br />
         <a
           className="btn--remix"
