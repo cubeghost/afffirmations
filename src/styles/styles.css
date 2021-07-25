@@ -98,6 +98,7 @@ input[type=text] {
   border: 0;
   padding: 0.25rem;
   color: var(--text-color);
+  border-bottom: var(--border-width) solid var(--medium-color);
 }
 
 input[type=range] {
